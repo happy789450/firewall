@@ -1,0 +1,10 @@
+端口转发学习
+iptables和firewall,nginx都可以做端口转发
+确定的结论
+系统防火墙的优先级要高于其他软件的转发
+如iptables  firewall  高于 nginx
+eg:
+在服务器a 配置iptables\firewall 转发80到85
+nginx 通过porxy_pass  转发80 到86
+然后测试访问
+在b服务器 curl  可以看到 结果是访问到了服务器a的85
