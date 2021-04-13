@@ -1,0 +1,15 @@
+常用命令
+eg:
+将本机端口80 转发到86  tcp协议
+firewall-cmd  --permanent  --add-forward-port=port=80:proto=tcp:toport=85
+刷新规则
+firewall-cmd --reload
+删除规则
+firewall-cmd  --permanent  --remove-forward-port=port=80:proto=tcp:toport=85
+
+允许85端口tcp访问
+firewall-cmd --zone=public --add-port=85/tcp --permanent
+查看当前允许的端口/协议
+firewall-cmd --zone=public --list-ports
+
+
