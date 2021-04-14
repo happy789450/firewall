@@ -12,4 +12,21 @@ firewall-cmd --zone=public --add-port=85/tcp --permanent
 查看当前允许的端口/协议
 firewall-cmd --zone=public --list-ports
 
+将本机80端口转发到另外一台服务器
+1，先开启伪装ip。2，端口转发
+eg:
+firewall-cmd --add-masquerade --permanent
+将10.4.45.5的tcp80 转发到10.4.45.2的tcp80
+firewall-cmd --permanent --add-forward-port=port=80:proto=tcp:toport=80:toaddr=10.4.45.2
+然后刷新规则即可
+firewall-cmd --reload
+
+
+
+
+
+
+
+
+
 
